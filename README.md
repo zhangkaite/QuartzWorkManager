@@ -4,6 +4,7 @@
 外部系统如何引用QuartzWorkManager
 1、初始化要执行的work，将work注册在zookeeper上
 2、通过zk开关来控制work的启动、停止、调度频率
+
  <bean id="scheduler" class="org.quartz.impl.StdSchedulerFactory" factory-method="getDefaultScheduler"/>
     <bean id="retryPolicy" class="org.apache.curator.retry.ExponentialBackoffRetry">
         <constructor-arg value="1000"/>
