@@ -3,6 +3,7 @@
 1、初始化要执行的work，将work注册在zookeeper上
 2、通过zk开关来控制work的启动、停止、调度频率
 
+自定义work注册配置文件
  <bean id="scheduler" class="org.quartz.impl.StdSchedulerFactory" factory-method="getDefaultScheduler"/>
     <bean id="retryPolicy" class="org.apache.curator.retry.ExponentialBackoffRetry">
         <constructor-arg value="1000"/>
@@ -31,8 +32,8 @@
                 </entry>
         </property>
     </bean>
-    
-初始化work
+
+读取自定义work的配置文件，初始化work
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
